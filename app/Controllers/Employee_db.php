@@ -46,7 +46,7 @@ class Employee_db extends BaseController
 			'phonenumber' => $this->request->getPost('phonenumber'),
 			'position' => $this->request->getPost('position'),
 			'department' => $this->request->getPost('department'),
-			'identification_card' => $this->request->getPost('identification_card'),
+			'identification_card'  => $this->request->getPost('identification_card'),
 			'issued_on' => $this->request->getPost('issued_on'),
 			'placed_on' => $this->request->getPost('placed_on'),
 		];
