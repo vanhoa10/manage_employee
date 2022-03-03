@@ -30,11 +30,6 @@ class Employee_db extends BaseController
 		return view('empl/add');
 	}
 
-	public function ajax()
-	{
-		return view('empl/ajax');
-	}
-
 	public function save()
 	{
 		$employee = new Employee();

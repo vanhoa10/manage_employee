@@ -4,9 +4,10 @@ use CodeIgniter\Model;
 
 class Employee extends Model 
 {
-    protected $table = 'if_emloyee';
+    protected $table = 'if_employee';
     protected $primaryKey = 'id';
     protected $allowedFields = [
+        'id',
         'name',
         'birth',
         'hometown',
