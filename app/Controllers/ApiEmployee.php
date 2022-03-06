@@ -11,7 +11,7 @@ class ApiEmployee extends ResourceController
     use ResponseTrait;
 
     //lấy tất cả dữ liệu
-    public function all()
+    public function index()
     {
         $employee = new Employee();
         $data['if_employee'] = $employee->findAll();
@@ -19,7 +19,7 @@ class ApiEmployee extends ResourceController
     }
 
     //lấy 1 dữ liệu
-    public function once($id=null)
+    public function show($id=null)
     {
         $employee = new Employee();
         $data = $employee->where('id', $id)->first();
