@@ -14,7 +14,7 @@ class ApiEmployee extends ResourceController
     public function all()
     {
         $employee = new Employee();
-        $data = $employee->findAll();
+        $data['if_employee'] = $employee->findAll();
         return $this->respond($data, 200);
     }
 
@@ -22,7 +22,7 @@ class ApiEmployee extends ResourceController
     public function once($id=null)
     {
         $employee = new Employee();
-        $data = $employee->getWhere(['id' => $id])->getResult();
+        $data = $employee->where('id', $id)->first();
         if ($data) {
             return $this->respond($data);
         } else {
