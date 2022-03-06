@@ -2,6 +2,8 @@
 
 namespace Config;
 
+use App\Controllers\ApiEmployee;
+
 // Create a new instance of our RouteCollection class.
 $routes = Services::routes();
 
@@ -32,14 +34,12 @@ $routes->setAutoRoute(true);
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
 $routes->get('/', 'Employee_db::select');
-$routes->get('/home', 'Employee_db::ajax');
 $routes->get('/create', 'Employee_db::create');
 $routes->post('/save', 'Employee_db::save');
 $routes->get('/show/(:num)', 'Employee_db::show/$1');
 $routes->get('/delete/(:num)', 'Employee_db::delete/$1');
 
-
-$routes->get('/Employee_api/select', 'Employee_api::select');
+$routes->resource('ApiEmployee');
 /*
 
 /*

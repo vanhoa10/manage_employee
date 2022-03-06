@@ -4,6 +4,9 @@ namespace App\Controllers;
 
 use App\Models\Employee;
 
+use CodeIgniter\Controller;
+use CodeIgniter\HTTP\RequestInterface;
+
 class Employee_db extends BaseController
 {
 	protected $table = 'if_employee';
@@ -56,4 +59,17 @@ class Employee_db extends BaseController
 		return redirect()->to(base_url('/'));
 	}
 
+	public function home() 
+	{
+		return view('empl/home');
+	}
+
+	public function ajaxSearch()
+	{
+		helper(['form', 'url']);
+		$builder = $this->db->table($this->table);
+		$query = $builder->like('position', $this->request->getVar('q'))->select('id, name, birth, phonenumber, position')->get();
+		$data = $query->getResult();
+		echo json_encode($data);
+	}
 }
